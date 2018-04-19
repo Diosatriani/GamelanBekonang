@@ -11,39 +11,39 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.user.gamelanbekonang.LogRes.LoginActivity;
+import com.example.user.gamelanbekonang.MainActivity;
 import com.example.user.gamelanbekonang.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FavoriteFragment extends Fragment {
+public class MenuFavoriteFragment extends Fragment {
 
-    Button btnlogin;
+    Button btnLogOut;
 
-
-    public FavoriteFragment() {
+    public MenuFavoriteFragment() {
         // Required empty public constructor
     }
 
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+
+        return inflater.inflate(R.layout.fragment_menu_favorite, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnlogin = (Button) view.findViewById(R.id.btnMasuk1);
+        btnLogOut = (Button) view.findViewById(R.id.btnKeluar);
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 getActivity().startActivity(intent);
             }
         });

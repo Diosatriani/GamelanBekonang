@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.example.user.gamelanbekonang.Api.BaseApiService;
 import com.example.user.gamelanbekonang.Api.UtilsApi;
-import com.example.user.gamelanbekonang.MainActivity;
+import com.example.user.gamelanbekonang.Main2Activity;
 import com.example.user.gamelanbekonang.R;
 
 import org.json.JSONException;
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String success =  jsonRESULTS.getString("msg");
                                     Toast.makeText(mContext, success, Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("email");
-                                    Intent intent = new Intent(mContext, MainActivity.class);
+                                    Intent intent = new Intent(mContext, Main2Activity.class);
 //                                    intent.putExtra("result_nama", nama);
                                     startActivity(intent);
 //                                    Log.d("hh", "uuuuuu"+nama );

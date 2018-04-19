@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".Main2Activity"/>
         <activity android:name=".Splash.SplashScreen" />
         <activity android:name=".MenuHome.DetailIklanActivity" />
         <activity android:name=".LogRes.LoginActivity" />
