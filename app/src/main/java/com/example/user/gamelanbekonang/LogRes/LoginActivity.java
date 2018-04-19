@@ -3,11 +3,15 @@ package com.example.user.gamelanbekonang.LogRes;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -43,16 +47,30 @@ public class LoginActivity extends AppCompatActivity {
     String TAG="";
     Context mContext;
     BaseApiService mApiService;
+    Toolbar mActionToolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mActionToolbar = (Toolbar) findViewById(R.id.tabs);
+        setSupportActionBar(mActionToolbar);
+        getSupportActionBar().setTitle("LOGIN");
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         mContext = this;
         mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
         initComponents();
     }
+
+
+
     private void initComponents() {
         coba = (TextView) findViewById(R.id.coba);
         etEmail = (EditText) findViewById(R.id.etEmail);
@@ -132,5 +150,13 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    //button back toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()== android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }
