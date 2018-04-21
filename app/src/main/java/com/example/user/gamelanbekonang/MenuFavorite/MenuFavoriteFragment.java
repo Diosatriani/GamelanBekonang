@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.user.gamelanbekonang.LogRes.LoginActivity;
 import com.example.user.gamelanbekonang.MainActivity;
 import com.example.user.gamelanbekonang.R;
 

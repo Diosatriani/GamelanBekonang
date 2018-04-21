@@ -1,4 +1,4 @@
-package com.example.user.gamelanbekonang.LogRes;
+package com.example.user.gamelanbekonang.logRes;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -37,17 +37,17 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText etEmail;
-    EditText etPassword;
-    TextView coba;
-    Button btnLogin;
-    Button btnRegister;
-    CheckBox c;
-    ProgressDialog loading;
-    String TAG="";
-    Context mContext;
-    BaseApiService mApiService;
-    Toolbar mActionToolbar;
+    private EditText etEmail;
+    private EditText etPassword;
+    private TextView coba;
+    private Button btnLogin;
+    private Button btnRegister;
+    private CheckBox c;
+    private ProgressDialog loading;
+    private String TAG="";
+    private Context mContext;
+    private BaseApiService mApiService;
+    private Toolbar mActionToolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,11 +72,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void initComponents() {
-        coba = (TextView) findViewById(R.id.coba);
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        c = (CheckBox) findViewById(R.id.checkBox);
+//        coba = (TextView) findViewById(R.id.coba);
+        etEmail = (EditText) findViewById(R.id.et_email);
+        etPassword = (EditText) findViewById(R.id.et_password);
+        btnLogin = (Button) findViewById(R.id.btn_login);
+        c = (CheckBox) findViewById(R.id.check_box);
         c.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnRegister = (Button) findViewById(R.id.btn_register);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

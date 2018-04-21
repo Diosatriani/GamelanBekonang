@@ -30,8 +30,11 @@
             android:layout_marginBottom="60dp"
             android:textSize="22sp"
             android:gravity="center"
+            android:id="@+id/text1"
             android:layout_gravity="center"
-            android:text="ANDA HARUS LOGIN JIKA INGIN MELIHAT MENU LAINNYA"/>
+            android:onClick="cobaclick"
+            android:text="ANDA HARUS LOGIN JIKA INGIN MELIHAT MENU LAINNYA"
+            tools:ignore="OnClick" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +44,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnMasuk"
+                android:id="@+id/btn_masuk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryDark"

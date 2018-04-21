@@ -22,8 +22,8 @@
         <activity android:name=".Main2Activity"/>
         <activity android:name=".Splash.SplashScreen" />
         <activity android:name=".MenuHome.DetailIklanActivity" />
-        <activity android:name=".LogRes.LoginActivity" />
-        <activity android:name=".LogRes.RegisterActivity"></activity>
+        <activity android:name=".logRes.LoginActivity" />
+        <activity android:name=".logRes.RegisterActivity"></activity>
     </application>
 
 </manifest>
