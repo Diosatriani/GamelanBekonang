@@ -3,8 +3,8 @@ package com.example.user.gamelanbekonang.logRes;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,9 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.user.gamelanbekonang.Api.BaseApiService;
-import com.example.user.gamelanbekonang.Api.UtilsApi;
 import com.example.user.gamelanbekonang.R;
+import com.example.user.gamelanbekonang.api.BaseApiService;
+import com.example.user.gamelanbekonang.api.UtilsApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,16 +29,16 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText etNama;
-    private EditText etEmail;
-    private EditText etPassword,etConfirm;
-    private EditText etNotelp;
-    private Button btnRegister;
-    private ProgressDialog loading;
+    EditText etNama;
+    EditText etEmail;
+    EditText etPassword,etConfirm;
+    EditText etNotelp;
+    Button btnRegister;
+    ProgressDialog loading;
 
-    private Context mContext;
-    private BaseApiService mApiService;
-    private Toolbar mActionToolbar;
+    Context mContext;
+    BaseApiService mApiService;
+    Toolbar mActionToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +61,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void initComponents() {
 
-        etNama = (EditText) findViewById(R.id.et_nama);
-        etEmail = (EditText) findViewById(R.id.et_email);
-        etNotelp = (EditText) findViewById(R.id.et_notelp);
-        etPassword = (EditText) findViewById(R.id.et_password);
-        etConfirm = (EditText) findViewById(R.id.et_confirmpassword);
-        btnRegister = (Button) findViewById(R.id.btn_register);
+        etNama = (EditText) findViewById(R.id.etNama);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etNotelp = (EditText) findViewById(R.id.etNotelp);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        etConfirm = (EditText) findViewById(R.id.etConfirmPassword);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,10 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -20,10 +20,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.user.gamelanbekonang.Api.BaseApiService;
-import com.example.user.gamelanbekonang.Api.UtilsApi;
-import com.example.user.gamelanbekonang.Main2Activity;
+import com.example.user.gamelanbekonang.MainActivity;
 import com.example.user.gamelanbekonang.R;
+import com.example.user.gamelanbekonang.api.BaseApiService;
+import com.example.user.gamelanbekonang.api.UtilsApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,17 +37,17 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText etEmail;
-    private EditText etPassword;
-    private TextView coba;
-    private Button btnLogin;
-    private Button btnRegister;
-    private CheckBox c;
-    private ProgressDialog loading;
-    private String TAG="";
-    private Context mContext;
-    private BaseApiService mApiService;
-    private Toolbar mActionToolbar;
+    EditText etEmail;
+    EditText etPassword;
+    TextView coba;
+    Button btnLogin;
+    Button btnRegister;
+    CheckBox c;
+    ProgressDialog loading;
+    String TAG="";
+    Context mContext;
+    BaseApiService mApiService;
+    Toolbar mActionToolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,11 +72,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void initComponents() {
-//        coba = (TextView) findViewById(R.id.coba);
-        etEmail = (EditText) findViewById(R.id.et_email);
-        etPassword = (EditText) findViewById(R.id.et_password);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        c = (CheckBox) findViewById(R.id.check_box);
+        coba = (TextView) findViewById(R.id.coba);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        c = (CheckBox) findViewById(R.id.checkBox);
         c.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        btnRegister = (Button) findViewById(R.id.btn_register);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String success =  jsonRESULTS.getString("msg");
                                     Toast.makeText(mContext, success, Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("email");
-                                    Intent intent = new Intent(mContext, Main2Activity.class);
+                                    Intent intent = new Intent(mContext, MainActivity.class);
 //                                    intent.putExtra("result_nama", nama);
                                     startActivity(intent);
 //                                    Log.d("hh", "uuuuuu"+nama );
