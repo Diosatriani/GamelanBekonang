@@ -29,7 +29,7 @@ public class AkunFragment extends Fragment {
     //nama listnya
     private String[] Nama = {"TENTANG", "BANTUAN"};
     //Daftar gambar
-    private int[] Gambar = {R.drawable.ic_akun, R.drawable.ic_home, R.drawable.ic_click, R.drawable.gamelanemas};
+    private int[] Gambar = {R.drawable.ic_akun, R.drawable.ic_home};
 
     Button btnlogin;
 

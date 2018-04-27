@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_icon_gw"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -24,7 +24,10 @@
         <activity android:name=".logRes.LoginActivity" />
         <activity android:name=".logRes.RegisterActivity" />
         <activity android:name=".menuAkun.TentangActivity" />
-        <activity android:name=".menuAkun.BantuanActivity"></activity>
+        <activity android:name=".menuAkun.BantuanActivity" />
+        <activity android:name=".spinnerActivity.CaraDaftarActivity" />
+        <activity android:name=".menuBantuan.CaraDaftarActivity" />
+        <activity android:name=".menuBantuan.MenandaiActivity"></activity>
     </application>
 
 </manifest>
