@@ -7,18 +7,18 @@ import android.view.MenuItem;
 
 import com.example.user.gamelanbekonang.R;
 
-public class JualBeliActivity extends AppCompatActivity {
+public class KetentuanActivity extends AppCompatActivity {
 
     private Toolbar mActionToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jual_beli);
+        setContentView(R.layout.activity_ketentuan);
 
         mActionToolbar = (Toolbar) findViewById(R.id.tabs);
         setSupportActionBar(mActionToolbar);
-        getSupportActionBar().setTitle("SYARAT JUAL BELI");
+        getSupportActionBar().setTitle("KETENTUAN UMUM");
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,4 +34,5 @@ public class JualBeliActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
 

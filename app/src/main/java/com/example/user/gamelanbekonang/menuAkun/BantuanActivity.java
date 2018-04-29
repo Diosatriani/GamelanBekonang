@@ -6,21 +6,22 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.user.gamelanbekonang.R;
 import com.example.user.gamelanbekonang.menuBantuan.CaraDaftarActivity;
 import com.example.user.gamelanbekonang.menuBantuan.JualBeliActivity;
-import com.example.user.gamelanbekonang.menuBantuan.MenandaiActivity;
+import com.example.user.gamelanbekonang.menuBantuan.KebijakanActivity;
+import com.example.user.gamelanbekonang.menuBantuan.KetentuanActivity;
+import com.example.user.gamelanbekonang.menuBantuan.SyaratActivity;
 
 public class BantuanActivity extends AppCompatActivity {
 
     private Toolbar mActionToolbar;
-    private Spinner spinnerAkun;
-    private Spinner spinnerTips;
-    private Spinner spinnerSyarat;
+    private TextView akun,tip, syarat, syaratU, privasi;
+//    private Spinner spinnerAkun;
+//    private Spinner spinnerTips;
+//    private Spinner spinnerSyarat;
 
 
     @Override
@@ -28,27 +29,37 @@ public class BantuanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bantuan);
 
-        spinnerAkun = findViewById(R.id.s_akun);
-        ArrayAdapter<String> myAkun = new ArrayAdapter<String>(BantuanActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.akun));
-        myAkun.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAkun.setAdapter(myAkun);
 
-        spinnerAkun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1){
-                    startActivity(new Intent(BantuanActivity.this, CaraDaftarActivity.class));
-                } else if (position == 2){
-                    startActivity(new Intent(BantuanActivity.this, MenandaiActivity.class));
-                }
-            }
+        mActionToolbar = (Toolbar) findViewById(R.id.tabs);
+        setSupportActionBar(mActionToolbar);
+        getSupportActionBar().setTitle("BANTUAN");
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-            }
-        });
+//        spinnerAkun = findViewById(R.id.s_akun);
+//        ArrayAdapter<String> myAkun = new ArrayAdapter<String>(BantuanActivity.this,
+//                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.akun));
+//        myAkun.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerAkun.setAdapter(myAkun);
+//
+//        spinnerAkun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == 1){
+//                    startActivity(new Intent(BantuanActivity.this, CaraDaftarActivity.class));
+//                } else if (position == 2){
+//                    startActivity(new Intent(BantuanActivity.this, SyaratActivity.class));
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
 //        spinnerTips = findViewById(R.id.s_tips);
 //        ArrayAdapter<String> myTips = new ArrayAdapter<String>(BantuanActivity.this,
@@ -94,15 +105,50 @@ public class BantuanActivity extends AppCompatActivity {
 //            }
 //        });
 
+        akun = findViewById(R.id.tv_akun);
+        akun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BantuanActivity.this, CaraDaftarActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        mActionToolbar = (Toolbar) findViewById(R.id.tabs);
-        setSupportActionBar(mActionToolbar);
-        getSupportActionBar().setTitle("BANTUAN");
+        tip = findViewById(R.id.tv_tips);
+        tip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BantuanActivity.this, JualBeliActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+        syarat = findViewById(R.id.tv_syarat);
+        syarat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BantuanActivity.this, SyaratActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        syaratU = findViewById(R.id.tv_syaratumum);
+        syaratU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BantuanActivity.this, KetentuanActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        privasi = findViewById(R.id.tv_privasi);
+        privasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BantuanActivity.this, KebijakanActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //button back toolbar

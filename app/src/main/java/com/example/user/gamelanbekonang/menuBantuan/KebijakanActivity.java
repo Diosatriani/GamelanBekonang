@@ -7,18 +7,18 @@ import android.view.MenuItem;
 
 import com.example.user.gamelanbekonang.R;
 
-public class MenandaiActivity extends AppCompatActivity {
+public class KebijakanActivity extends AppCompatActivity {
 
     private Toolbar mActionToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menandai);
+        setContentView(R.layout.activity_kebijakan);
 
         mActionToolbar = (Toolbar) findViewById(R.id.tabs);
         setSupportActionBar(mActionToolbar);
-        getSupportActionBar().setTitle("PETUNJUK MENANDAI IKLAN");
+        getSupportActionBar().setTitle("KEBIJAKAN PRIVASI");
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,3 +34,5 @@ public class MenandaiActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+
