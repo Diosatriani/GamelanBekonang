@@ -12,12 +12,15 @@ import android.widget.Spinner;
 
 import com.example.user.gamelanbekonang.R;
 import com.example.user.gamelanbekonang.menuBantuan.CaraDaftarActivity;
+import com.example.user.gamelanbekonang.menuBantuan.JualBeliActivity;
 import com.example.user.gamelanbekonang.menuBantuan.MenandaiActivity;
 
 public class BantuanActivity extends AppCompatActivity {
 
     private Toolbar mActionToolbar;
     private Spinner spinnerAkun;
+    private Spinner spinnerTips;
+    private Spinner spinnerSyarat;
 
 
     @Override
@@ -46,6 +49,51 @@ public class BantuanActivity extends AppCompatActivity {
 
             }
         });
+
+//        spinnerTips = findViewById(R.id.s_tips);
+//        ArrayAdapter<String> myTips = new ArrayAdapter<String>(BantuanActivity.this,
+//                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tips));
+//        myAkun.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerTips.setAdapter(myTips);
+//
+//        spinnerTips.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                 if (position == 0){
+//                    startActivity(new Intent(BantuanActivity.this, JualBeliActivity.class));
+//                }else if (position ==1){
+//                    startActivity(new Intent(BantuanActivity.this, JualBeliActivity.class));
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
+//        spinnerSyarat = findViewById(R.id.s_syarat);
+//        ArrayAdapter<String> mySyarat = new ArrayAdapter<String>(BantuanActivity.this,
+//                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.syarat));
+//        myAkun.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerTips.setAdapter(mySyarat);
+//
+//        spinnerTips.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == 0){
+//                    startActivity(new Intent(BantuanActivity.this, JualBeliActivity.class));
+//                }else if (position ==1){
+//                    startActivity(new Intent(BantuanActivity.this, JualBeliActivity.class));
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
 
         mActionToolbar = (Toolbar) findViewById(R.id.tabs);
         setSupportActionBar(mActionToolbar);

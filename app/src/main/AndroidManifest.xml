@@ -27,7 +27,8 @@
         <activity android:name=".menuAkun.BantuanActivity" />
         <activity android:name=".spinnerActivity.CaraDaftarActivity" />
         <activity android:name=".menuBantuan.CaraDaftarActivity" />
-        <activity android:name=".menuBantuan.MenandaiActivity"></activity>
+        <activity android:name=".menuBantuan.MenandaiActivity" />
+        <activity android:name=".menuBantuan.JualBeliActivity"></activity>
     </application>
 
 </manifest>
