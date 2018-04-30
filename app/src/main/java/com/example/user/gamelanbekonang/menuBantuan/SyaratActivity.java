@@ -14,7 +14,7 @@ public class SyaratActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menandai);
+        setContentView(R.layout.activity_syarat);
 
         mActionToolbar = (Toolbar) findViewById(R.id.tabs);
         setSupportActionBar(mActionToolbar);

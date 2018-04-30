@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.user.gamelanbekonang.R;
@@ -86,8 +88,8 @@ public class BantuanActivity extends AppCompatActivity {
 //        spinnerSyarat = findViewById(R.id.s_syarat);
 //        ArrayAdapter<String> mySyarat = new ArrayAdapter<String>(BantuanActivity.this,
 //                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.syarat));
-//        myAkun.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinnerTips.setAdapter(mySyarat);
+//        mySyarat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerSyarat.setAdapter(mySyarat);
 //
 //        spinnerTips.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
@@ -123,14 +125,14 @@ public class BantuanActivity extends AppCompatActivity {
             }
         });
 
-        syarat = findViewById(R.id.tv_syarat);
-        syarat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BantuanActivity.this, SyaratActivity.class);
-                startActivity(intent);
-            }
-        });
+//        syarat = findViewById(R.id.tv_syarat);
+//        syarat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(BantuanActivity.this, SyaratActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         syaratU = findViewById(R.id.tv_syaratumum);
         syaratU.setOnClickListener(new View.OnClickListener() {
