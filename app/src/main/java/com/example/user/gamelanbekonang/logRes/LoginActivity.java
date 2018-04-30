@@ -3,6 +3,7 @@ package com.example.user.gamelanbekonang.logRes;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -37,17 +38,19 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText etEmail;
-    EditText etPassword;
-    TextView coba;
-    Button btnLogin;
-    Button btnRegister;
-    CheckBox c;
-    ProgressDialog loading;
-    String TAG="";
-    Context mContext;
-    BaseApiService mApiService;
-    Toolbar mActionToolbar;
+    private EditText etEmail;
+    private EditText etPassword;
+    private TextView coba;
+    private Button btnLogin;
+    private Button btnRegister;
+    private CheckBox c;
+    private ProgressDialog loading;
+    private String TAG="";
+    private Context mContext;
+    private BaseApiService mApiService;
+    private Toolbar mActionToolbar;
+    SharedPreferences sharedpreferences;
+    public static final String my_shared_preferences = "my_shared_preference";
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void initComponents() {
+        sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
         coba = (TextView) findViewById(R.id.coba);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
@@ -119,10 +123,22 @@ public class LoginActivity extends AppCompatActivity {
                                     // akan diparsing ke activity selanjutnya.
                                     String success =  jsonRESULTS.getString("msg");
                                     Toast.makeText(mContext, success, Toast.LENGTH_SHORT).show();
-                                    String nama = jsonRESULTS.getJSONObject("user").getString("email");
+                                    String id = jsonRESULTS.getJSONObject("user").getString("id");
+                                    String image = jsonRESULTS.getJSONObject("user").getString("image");
+                                    String nama = jsonRESULTS.getJSONObject("user").getString("name");
+                                    String email = jsonRESULTS.getJSONObject("user").getString("email");
+                                    String notelp = jsonRESULTS.getJSONObject("user").getString("notelp");
+                                    Log.d(TAG, "kkkkkkkkkkkkkk: "+id+image+nama+email+notelp);
                                     Intent intent = new Intent(mContext, MainActivity.class);
+                                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                                    editor.putString("id", id);
+                                    editor.putString("image", image);
+                                    editor.putString("name", nama);
+                                    editor.putString("email", email);
+                                    editor.putString("notelp", notelp);
 //                                    intent.putExtra("result_nama", nama);
                                     startActivity(intent);
+                                    editor.apply();
 //                                    Log.d("hh", "uuuuuu"+nama );
                                 } else {
                                     // Jika login gagal
