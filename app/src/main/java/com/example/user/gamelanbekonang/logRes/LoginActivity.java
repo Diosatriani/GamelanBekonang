@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -50,7 +51,13 @@ public class LoginActivity extends AppCompatActivity {
     private BaseApiService mApiService;
     private Toolbar mActionToolbar;
     SharedPreferences sharedpreferences;
+    public static final  String value = "key";
+    Boolean session = false;
+    private String id,image,name,email,notelp;
+    public static final String session_status = "session_status";
     public static final String my_shared_preferences = "my_shared_preference";
+    SharedPreferences sharedPreferences;
+    private int i;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -76,6 +83,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initComponents() {
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+        session = sharedpreferences.getBoolean(session_status, false);
+        id = sharedpreferences.getString("id",null);
+        image = sharedpreferences.getString("iamge", null);
+        name = sharedpreferences.getString("name", null);
+        email = sharedpreferences.getString("email", null);
+        notelp = sharedpreferences.getString("notelp",null);
+        int i = sharedpreferences.getInt(value, 0);
+
         coba = (TextView) findViewById(R.id.coba);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
@@ -109,6 +124,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     private void requestLogin() {
         mApiService.loginRequest(etEmail.getText().toString(), etPassword.getText().toString())
                 .enqueue(new Callback<ResponseBody>() {
@@ -130,15 +148,20 @@ public class LoginActivity extends AppCompatActivity {
                                     String notelp = jsonRESULTS.getJSONObject("user").getString("notelp");
                                     Log.d(TAG, "kkkkkkkkkkkkkk: "+id+image+nama+email+notelp);
                                     Intent intent = new Intent(mContext, MainActivity.class);
-                                    SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                                    SharedPreferences sharedPreferences = PreferenceManager
+                                            .getDefaultSharedPreferences(getApplicationContext());
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putBoolean(session_status, true);
                                     editor.putString("id", id);
                                     editor.putString("image", image);
                                     editor.putString("name", nama);
                                     editor.putString("email", email);
                                     editor.putString("notelp", notelp);
+                                    editor.commit();
 //                                    intent.putExtra("result_nama", nama);
                                     startActivity(intent);
-                                    editor.apply();
+
 //                                    Log.d("hh", "uuuuuu"+nama );
                                 } else {
                                     // Jika login gagal
